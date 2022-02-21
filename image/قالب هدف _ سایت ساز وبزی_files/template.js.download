@@ -1,0 +1,116 @@
+/******************************************************************************
+ * Webzi Site Builder                                                         *
+ *                                                                            *
+ * Copyright (c) 2014-2017 Webzi Team                                         *
+ * ************************************************************************** *
+ * This is bundled with this package in the file LICENSE.txt                  *
+ *                                                                            *
+ * If you did not receive a copy of the license and are unable to             *
+ * obtain it through the world-wide-web, please send an email                 *
+ * to license@webzi.ir so we can send you a copy immediately.                 *
+ * ************************************************************************** *
+ * @Author: Masoud Sabaghi <masoud.sabaghi@gmail.com>                         *
+ * @Copyright: 2014-2017                                                      *
+ ******************************************************************************/
+jQuery(document).ready(function ($) {
+    changeScale();
+    var devices = (document.querySelectorAll('.demo-device'));
+    var $devices = $('.demo-device');
+    var selectedDevice = 'desktop';
+    //Devices Icon Click Events
+    $('body').on('click', '.demo-device-icon', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        $this.addClass('active')
+            .siblings('.demo-device-icon')
+            .removeClass('active');
+        var id = $this.attr('data-device');
+        var wrapperClasses = ['demo-device-monitor', 'demo-device-tablet', 'demo-device-phone'];
+        if ($this.data()) {
+            var oldSelectedDevice_1 = selectedDevice;
+            selectedDevice = id;
+            //Change the Devices on Icon Click
+            $devices.each(function () {
+                var $element = $(this);
+                if ($element.attr('id') === id) {
+                    //Add Fade-in Effect on Device Changes
+                    if ($('#wrapper').hasClass("demo-device-" + id)) {
+                        $('.device-preview').fadeTo(200, 0, 'linear').stop();
+                    }
+                    else {
+                        $('.device-preview').fadeTo(300, 0);
+                        setTimeout(function () {
+                            $element.addClass('show');
+                            for (var i = 0; i < wrapperClasses.length; i++) {
+                                if (!wrapperClasses[i] || wrapperClasses[i] === "demo-device-" + id) {
+                                    $('#wrapper').addClass("" + wrapperClasses[i]);
+                                }
+                                else {
+                                    $('#wrapper').removeClass("" + wrapperClasses[i]);
+                                }
+                            }
+                            setTimeout(function () {
+                                $('#theme-iframe').trigger('resize');
+                            }, 400);
+                            if (oldSelectedDevice_1 === 'phone' && selectedDevice === 'tablet') {
+                                $('#theme-iframe').attr("src", $('#theme-iframe').attr("src"));
+                            }
+                            $('.device-preview').fadeTo(300, 1);
+                        }, 300);
+                    }
+                }
+                else {
+                    $element.removeClass('show');
+                }
+            });
+            changeScale();
+        }
+    });
+    //Scale on screen changes
+    function changeScale() {
+        var screenWidth = window.screen.availWidth;
+        var screenHeight = window.screen.availHeight;
+        if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            screenWidth = $(window).outerWidth();
+            screenHeight = $(window).outerHeight();
+        }
+        screenWidth = Math.min($(window).outerWidth(), window.screen.availWidth);
+        screenHeight = Math.min($(window).outerHeight(), window.screen.availHeight);
+        // let headerAndFooter = 112;
+        var scaleRatio = (screenWidth / 2560);
+        var availHeight = screenHeight - $('#template-review').outerHeight() - $('.footer').outerHeight();
+        // if (screenWidth <= 1501 && screenWidth >= 768) {
+        //     $('.device-scale').css({transform: `translateY(0px) scale(${scaleRatio})`})
+        // } else if (screenWidth < 768 && screenWidth >= 560) {
+        //     $('.device-scale').css({transform: `translateY(calc(100vh /12)) scale(${scaleRatio * 1.5})`})
+        // }
+        // else if (screenWidth < 768) {
+        //     $('.device-scale').css({transform: `translateY(calc(100vh /9)) scale(${scaleRatio * 1.5})`})
+        // } else {
+        //     $('.device-scale').css({transform: ` scale(${scaleRatio})`})
+        // }
+        // if (screenWidth >= 1024) {
+        //     availHeight = screenHeight - 145;
+        //
+        // }
+        var deviceHeight = $("#wrapper").outerHeight();
+        var deviceWidth = $("#wrapper").outerWidth();
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            scaleRatio = 0.85;
+            if (screenWidth < deviceWidth) {
+                scaleRatio = (screenWidth / deviceWidth) * 0.85;
+            }
+            if (availHeight < deviceHeight) {
+                var heightScaleRatio = (availHeight / deviceHeight) * 0.85;
+                if (heightScaleRatio < scaleRatio) {
+                    scaleRatio = heightScaleRatio;
+                }
+            }
+        }
+        var translate = (availHeight - (deviceHeight * scaleRatio)) / 2;
+        $('.device-scale').css({ transform: "translateY(" + translate + "px) scale(" + scaleRatio + ")" });
+    }
+    $(window)
+        .on('resize', changeScale)
+        .on('load', changeScale);
+});

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <style>
+        body{
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+        .nav-bar{
+            position: sticky;
+            top: 0px;
+            background-color: #333;
+            display: flex;
+            color: #fff;
+            justify-content: space-between;
+            padding: 0.4rem;
+            margin: 0px;
+        }
+
+        .text-orange{
+            color: rgb(189, 53, 3);
+        }
+        .menu{
+            list-style: none;
+            display: flex;
+            padding: 0.5rem;
+    
+            }
+        .menu li a{
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .menu li a:hover{
+            background-color: rgb(189, 53, 3);
+            transition-duration: 0.6s;
+        }
+        .showecase{
+            background: url('image/Aradhana-Villas-Slide2.jpg') center center/cover;
+            height: 50vh;  
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .showecase h2{
+            font-size: 3rem;
+            color: white;
+            margin-top: 0px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .showecase p{
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+        }
+        .btn{
+            color: #fff;
+            padding: 0.6rem 1rem;
+            background: orangered;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover{
+            background: rgb(158, 46, 5);
+            transition-duration: 0.6s;
+        }
+        .what h2{
+            text-align: center;
+            
+        }
+        .what-content{
+            display: flex;
+            justify-content: space-around;
+            
+        }
+        .what-content i{
+            background-color:orangered ;
+            padding: 15px;
+            border-radius: 50%;
+        }
+        .what-content div{
+            text-align: center;
+            padding: 1rem;
+        }
+        .who{
+            display: flex;
+
+        }
+        .right{
+            width: 50%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        .left{
+            background: url('image/1415324-افراد-کسب-و-کار-دست-و-پا-زدن-پایان-دادن-به-یک-جلسه.jpg') center center/cover;
+            height: 450px;
+            width: 50%;
+        }
+        .list{
+            list-style: none;
+            padding-left: 0px;
+        }
+        .right li{
+            border-bottom: 1px solid #555;
+            padding: 10px;
+
+        }
+        .out-featured h3{
+            text-align: center;
+        }
+        .out-featured p{
+            text-align: center;
+        }
+        .top{
+            display: flex;
+            height: 400px;
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .top img{
+            width: 32%;
+            height: 100%;
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .bottom{
+            display: flex;
+            height: 400px;
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .bottom img{
+            width: 32%;
+            height: 100%;
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .container{
+            background-color: rgb(48, 133, 167);
+            width: 50%;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form{
+            padding: 15px;
+        }
+        .form input , textarea{
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 0px;
+        }
+        .form label{ 
+            display: block;
+            margin: 10px 0;
+        }
+        .btn2{
+            background-color: #000;
+            color: white;
+            margin: 10px 0;
+            height: 40px;
+        }
+        .btn2:hover{
+            background-color: orangered;
+            transition-duration: 0.6s;
+        }
+        .container-2{
+            display: flex;
+            flex-direction: column;
+        }
+        .index{
+            display: flex;
+            /* flex-direction: column; */
+        }
+        .map{
+            padding: 10px;
+            border: 1px solid #666;
+        }
+        .footer{
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        @media screen and (max-width : 900px)
+        {
+            .nav-bar{
+                flex-direction: column;
+            }
+            .nav-bar h1{
+                text-align: center;
+            }
+            .nav-bar ul{
+                margin: 0 auto;
+                text-align: center;
+            }
+            .what-content{
+                flex-direction: column;
+            }
+            .who{
+                flex-direction: column;
+                width: 100%;
+            }
+            .who .right{
+                width: 100%;
+            }
+            .who .left{
+                width: 100%;
+            }
+            .top{
+                flex-direction:column ;
+                height: 100%;
+
+            }
+            .top img{
+                width: 100%;
+                padding: 5px;
+            }
+            .bottom{
+                display: none;
+            }
+            .bottom img{
+                width: 50%;
+            }
+            .container{
+                width: 100%;
+            }
+            .index{
+                flex-direction: column;
+            }
+            .who .left{
+                display: none;
+            }
+            .container{
+                width: 98%;
+            }
+            .who .right{
+                width: 96%;
+            }
+            .what-content div{
+                padding: 5px;
+            }
+
+
+
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h1>
+            <i class="fab fa-edge text-orange"></i>
+            ATRIYA
+        </h1>
+        <ul class="menu">
+            <li><a href="#">home</a></li>
+            <li><a href="#">what</a></li>
+            <li><a href="#">who</a></li>
+            <li><a href="#">portfolio</a></li>
+            <li><a href="#">contact us</a></li>
+        </ul>
+    </nav>
+    <div class="showecase">
+        <h2>
+            The Sky Is The Limit
+        </h2>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit iure fugiat mollitia officiis illo aut ut possimus vero quod a?
+        </p>
+        <a href="#" class="btn">Read more</a>
+    </div>
+    <div class="what">
+        <h2>
+            <span class="text-orange">what</span> we do
+        </h2>
+        <div class="what-content">
+            <div>
+            <i class="fa fa-university fa-2x"></i>
+            <div>
+                <h3>
+                    responsive design
+                </h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, maiores libero eos molestias quam natus velit veniam dolore sed aliquid.
+
+                </p>
+            </div>
+        </div>
+
+            <div>
+                <i class="fa fa-book-reader fa-2x"></i>
+                <div>
+                    <h3>
+                        retina ready iconse
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci excepturi dolorum maxime, nihil doloribus blanditiis beatae pariatur! Totam, expedita eligendi?
+
+                    </p>
+                </div>
+            </div>
+            <div>
+                <i class="fab fa-buffer fa-2x"></i>
+                <div>
+                    <h3>
+                        parallax background
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eligendi repellat ipsum, facilis hic beatae. Dolores quod ut optio inventore!
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="who">
+        <div class="left">
+
+        </div>
+        <div class="right">
+            <h3>
+                <span class="text-orange">who</span> we are
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum repellat saepe. Neque, dolorem mollitia?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, deserunt.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit unde enim libero sint suscipit dolore in alias deserunt ut necessitatibus.
+
+            </p>
+            <h4>
+                our teem
+            </h4>
+            <ul class="list">
+                <li>joe Dalton :CEO</li>
+                <li>jack Dalton :CFO</li>
+                <li>william Dalton : Lead Accountant</li>
+                <li>Averest Dalton :Inevstment manager </li>
+                <li>Lucy Lucy : senlor accountant</li>
+            </ul>
+        </div>
+     
+    </div>
+
+    <div class="out-featured">
+        <h3>
+            <span class="text-orange">our</span> featured work
+        </h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur!
+
+        </p>
+        <div class="top">
+            <img src="image/1.jpg" alt=""> 
+            <img src="image/2.jpg" alt=""> 
+            <img src="image/3.jpg" alt=""> 
+        </div>
+        <div class="bottom">
+            <img src="image/4.jpg" alt="">
+            <img src="image/5.jpg" alt="">
+            <img src="image/6.jpg" alt="">
+        </div>
+    </div>
+    <div class="index">
+    <div class="container">
+        <div class="container-2">
+        <h2>
+        <span class="text-orange">contact</span> us
+        </h2>
+        <p>
+            please use the form below to contact us 
+        </p>
+         </div>
+        <form action="" class="form">
+            <label for="">Name</label>
+            <input type="text" placeholder="Enter Name...">
+            <label for="">Email</label>
+            <input type="text" placeholder="Enter Email...">
+            <label for="">Phone Number</label>
+            <input type="text" placeholder="Enter Phone Number...">
+            <label for="">Message</label>
+            <textarea placeholder="Enter a Message..."></textarea>
+            <input type="submit" value="send" class="btn2">
+        </form>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d933.7790602797328!2d46.28760887518833!3d38.07397074295304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x72978b3a58e54cee!2z2LTYsdqp2Kog2KfYsdmI2YUg2YbYp9mG2Ygg2b7Ysdiv2KfYsiDYsdin24zYp9mG2Yco2YbYsdmFINin2YHYstin2LEg2K3Ys9in2KjYr9in2LHbjCDYrdiz2YXYpyk!5e0!3m2!1sen!2s!4v1624272320625!5m2!1sen!2s" height="500px" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    </div>
+    <footer class="footer">
+        Lorem ipsum dolor sit amet, consectetur adipisicing.
+
+    </footer>
+    <path d="M230.916,66.103c-0.15-0.087-0.302-0.168-0.452-0.254C203.002,49.955,168,48.793,138.665,65.86 c-43.532,25.326-58.345,81.345-33.019,124.876c7.728,13.284,18.318,23.888,30.536,31.498c1.039,0.658,2.09,1.305,3.164,1.927 c43.579,25.247,99.568,10.333,124.814-33.244C289.405,147.338,274.495,91.35,230.916,66.103z M241.818,137.344l-15.259,14.873 c-4.726,4.606-7.68,13.698-6.563,20.203l3.602,21.001c1.116,6.505-2.75,9.314-8.592,6.243l-18.861-9.916 c-5.842-3.071-15.401-3.071-21.243,0l-18.86,9.916c-5.842,3.071-9.709,0.262-8.593-6.243l3.602-21.001 c1.116-6.505-1.838-15.597-6.564-20.203l-15.258-14.873c-4.727-4.606-3.249-9.152,3.282-10.102l21.086-3.064 c6.531-0.949,14.265-6.568,17.186-12.486l9.43-19.107c2.921-5.918,7.701-5.918,10.621,0l9.431,19.107 c2.921,5.918,10.654,11.537,17.186,12.486l21.086,3.064C245.067,128.192,246.544,132.738,241.818,137.344z"></path>
+</body>
+</html>
